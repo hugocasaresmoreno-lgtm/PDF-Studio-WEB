@@ -6,15 +6,16 @@
     <title>PDF Studio - Lector y Editor Profesional</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --secondary: #10b981;
-            --secondary-hover: #059669;
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --secondary: #0d9488;
+            --secondary-hover: #0f766e;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
         }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -31,25 +32,43 @@
             width: 100%;
             max-width: 750px;
             background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
             border: 1px solid var(--border);
             padding: 40px;
             box-sizing: border-box;
+            text-align: center;
+        }
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #60a5fa, #38bdf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+        }
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .subtitle {
-            text-align: center;
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 30px;
+            line-height: 1.5;
         }
         .button-group {
             display: flex;
@@ -62,13 +81,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 28px;
+            padding: 14px 26px;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
         .btn-windows {
             background-color: var(--primary);
@@ -87,10 +106,10 @@
             transform: translateY(-2px);
         }
         .section-box {
-            background: rgba(15, 23, 42, 0.6);
+            background: #f1f5f9;
             border: 1px solid var(--border);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 20px;
             font-size: 0.95rem;
             color: var(--text-muted);
@@ -100,7 +119,7 @@
             color: var(--text-main);
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
         .section-box ol {
             margin: 0;
@@ -108,52 +127,59 @@
         }
         .section-box li {
             margin-bottom: 6px;
+            line-height: 1.4;
         }
         .legal-footer {
             margin-top: 40px;
             border-top: 1px solid var(--border);
             padding-top: 20px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             text-align: center;
         }
         .legal-footer p {
             margin: 6px 0;
+            line-height: 1.4;
         }
         .legal-links {
-            margin-top: 10px;
+            margin-top: 12px;
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
         .legal-links a {
-            color: #60a5fa;
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 500;
         }
         .legal-links a:hover {
             text-decoration: underline;
         }
         .cookie-banner {
-            background: #334155;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
+            background: #e2e8f0;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #e2e8f0;
+            color: var(--text-main);
             text-align: left;
+            border: 1px solid #cbd5e1;
         }
         .cookie-banner button {
             background: var(--primary);
             border: none;
             color: white;
-            padding: 5px 12px;
-            border-radius: 4px;
+            padding: 6px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 10px;
         }
         .cookie-banner button:hover {
             background: var(--primary-hover);
@@ -163,51 +189,52 @@
 <body>
 
     <div class="container">
+        <!-- Icono de la aplicación -->
+        <img src="icono.jpg" alt="PDF Studio Icono" class="app-icon">
+        
         <h1>PDF Studio</h1>
-        <p class="subtitle">La solución definitiva, ligera y moderna para gestionar tus archivos PDF.</p>
+        <div class="badge">Versión de Desarrollo v1.0.0</div>
+        <p class="subtitle">La solución ligera, moderna y de alto rendimiento para leer y editar tus archivos PDF con total privacidad y fluidez.</p>
         
         <!-- Banner de Cookies legal -->
         <div class="cookie-banner" id="cookieBanner">
-            <span>Utilizamos cookies técnicas y de rendimiento para asegurar una experiencia óptima y legal en la web.</span>
+            <span>Este sitio utiliza cookies técnicas de sesión y análisis de rendimiento para garantizar una experiencia legal y óptima.</span>
             <button onclick="document.getElementById('cookieBanner').style.display='none'">Aceptar</button>
         </div>
 
-        <!-- Botones de Acción principales (Windows y Navegador Web) -->
+        <!-- Botones de Acción principales -->
         <div class="button-group">
-            <!-- Botón de Windows con enlace directo a Google Drive -->
             <a href="https://drive.google.com/uc?export=download&id=1EYEt-FCn9xLtMN1HRKqQ3q5BGDn1reue" class="btn btn-windows">Descargar para Windows (.exe)</a>
-            
-            <!-- Botón de la Versión Web (Reemplaza 'AQUÍ_TU_ENLACE_WEB' por la URL real de tu app web o déjalo interactivo) -->
-            <a href="AQUÍ_TU_ENLACE_WEB" class="btn btn-web">Usar en el Navegador Web</a>
+            <a href="https://hugocasaresmoreno-lgtm.github.io/PDF-Studio/" class="btn btn-web">Usar en el Navegador Web</a>
         </div>
 
-        <!-- Apartado de Guía de Descarga -->
+        <!-- Apartado de Guía de Descarga e Instalación -->
         <div class="section-box">
-            <h3>Guía de Instalación y Seguridad</h3>
+            <h3>Guía de Instalación y Seguridad en Windows</h3>
             <ol>
-                <li><strong>Descarga directa:</strong> Haz clic en el botón de Windows para obtener el instalador seguro desde la nube.</li>
-                <li><strong>Aviso del navegador/Windows:</strong> Al tratarse de una aplicación de desarrollo independiente reciente, es posible que aparezca una alerta de SmartScreen. Haz clic en los tres puntos (<em>...</em>), selecciona <strong>Conservar</strong> y luego <strong>Conservar de todos modos</strong>.</li>
-                <li><strong>Ejecución:</strong> Abre el archivo `.exe` descargado para iniciar el asistente de instalación automática en tu PC.</li>
+                <li><strong>Descarga segura:</strong> Haz clic en el botón de Windows para iniciar la descarga directa del instalador compilado.</li>
+                <li><strong>Aviso de SmartScreen / Navegador:</strong> Al tratarse de una app de desarrollo independiente reciente, es normal que Windows o el navegador muestren una advertencia preventiva. Haz clic en los tres puntos (<em>...</em>), selecciona <strong>Conservar</strong> y después <strong>Conservar de todos modos</strong>.</li>
+                <li><strong>Ejecución del Setup:</strong> Abre el archivo `.exe` descargado para desplegar la aplicación de forma automática en tu PC.</li>
             </ol>
         </div>
 
         <!-- Apartado sobre la Versión Web -->
-        <div class="section-box" id="web-app">
-            <h3>Compatibilidad y Versión Web</h3>
+        <div class="section-box">
+            <h3>Arquitectura y Versión Web</h3>
             <p style="margin: 0; color: var(--text-muted);">
-                PDF Studio cuenta con una arquitectura optimizada tanto para escritorio como para navegadores web estándar. La versión web permite procesar documentos directamente en línea de forma rápida y segura, asegurando la privacidad de tus ficheros.
+                PDF Studio cuenta con compatibilidad para navegadores modernos utilizando procesamiento local en cliente (Client-Side Rendering), lo que garantiza que tus documentos se gestionen con la máxima velocidad sin abandonar tu dispositivo.
             </p>
         </div>
 
-        <!-- Pie de página legal y de desarrollo -->
+        <!-- Pie de página legal, certificados y contacto -->
         <div class="legal-footer">
-            <p><strong>Aviso de Desarrollo:</strong> PDF Studio es un software activo en fase de desarrollo continuo. Certificado de integridad de compilación verificado. Ante cualquier fallo, duda o sugerencia, contacta en: <a href="mailto:hcasaresm10@gmail.com" style="color: #60a5fa;">hcasaresm10@gmail.com</a></p>
+            <p><strong>Aviso de Software en Desarrollo:</strong> PDF Studio se encuentra en fase activa de desarrollo y pruebas de integración. Certificado de integridad de compilación verificado. Soporte y reporte de incidencias en: <a href="mailto:hcasaresm10@gmail.com" style="color: var(--primary);">hcasaresm10@gmail.com</a></p>
             <p>&copy; 2026 PDF Studio Project. Todos los derechos reservados.</p>
             <div class="legal-links">
-                <a href="#privacidad" onclick="alert('Política de Privacidad: Sus datos y documentos PDF procesados permanecen seguros y nunca se almacenan sin autorización en servidores externos.')">Política de Privacidad</a>
-                <a href="#terminos" onclick="alert('Términos de Servicio: Software distribuido bajo los términos de uso estándar para aplicaciones independientes en desarrollo.')">Términos y Condiciones</a>
-                <a href="#cookies" onclick="alert('Política de Cookies: Este sitio web emplea únicamente cookies de sesión técnicas necesarias para el correcto funcionamiento de GitHub Pages.')">Política de Cookies</a>
-                <a href="#certificados" onclick="alert('Certificación de Seguridad: Enlaces cifrados bajo protocolo SSL/TLS con encriptación de extremo a extremo.')">Certificados de Seguridad</a>
+                <a href="#privacidad" onclick="alert('Política de Privacidad: Todos los ficheros procesados se ejecutan de forma local. No almacenamos datos de usuario en servidores externos.')">Política de Privacidad</a>
+                <a href="#terminos" onclick="alert('Términos de Servicio: Software distribuido bajo las condiciones de uso estándar para herramientas de desarrollo independiente.')">Términos y Condiciones</a>
+                <a href="#cookies" onclick="alert('Política de Cookies: Uso exclusivo de cookies técnicas esenciales para el funcionamiento del portal en GitHub Pages.')">Política de Cookies</a>
+                <a href="#certificados" onclick="alert('Certificación de Seguridad: Enlaces cifrados mediante protocolo SSL/TLS con encriptación de extremo a extremo y verificación de firmas.')">Certificados de Seguridad</a>
             </div>
         </div>
     </div>
